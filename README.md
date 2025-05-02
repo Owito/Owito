@@ -27,7 +27,7 @@ I specialize in combining advanced technical skills with a deep understanding of
 **Languages and Technologies:**
 
 - **Frontend:** HTML, CSS3, JavaScript
-- **Backend:** Java (Intermediate)
+- **Backend:** PHP, Java (Intermediate)
 - **Version Control:** Git, GitHub
 - **Design Tools:** Figma, Adobe Suite (Premiere, Audition, Illustrator), Canva
 - **E-Learning:** Articulate 360, Adobe Captivate, Moodle, Exelearning, web layout
