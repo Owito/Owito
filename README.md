@@ -5,7 +5,7 @@
 
 ---
 
-**🌟 Instructional Designer - UX/UI Developer - Software Engineer 🌟**
+**🌟 Software engineer  | Technical Lead | Red Teaming 🌟**
 
 ---
 
