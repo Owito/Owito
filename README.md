@@ -7,14 +7,6 @@
 
 **🌟 Software engineer  | Technical Lead | Red Teaming 🌟**
 
----
-
-Hello! 👋 I'm **Carlos**, a passionate full-stack developer with solid experience in **virtual education, instructional design, UX/UI, accessibility, web development, and E-Commerce**. I love creating digital learning solutions that are both pedagogically effective and intuitive and engaging for users. 🌐
-
-I specialize in combining advanced technical skills with a deep understanding of **Artificial Intelligence** to create innovative and effective content.
-
----
-
 ## 📬 Contact Me:
 
 - **🔗 LinkedIn:** [Carlos G](https://www.linkedin.com/in/consultordigitalcarlosguerra/)
