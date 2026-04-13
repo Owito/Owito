@@ -44,7 +44,7 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 
 - **PoliMarket:** Diseño e implementación de una arquitectura de componentes distribuidos con separación estricta de capas. Backend desarrollado en **Go** (API REST sin frameworks) y cliente CLI en **Rust**, con despliegue automatizado en Render y GitHub Pages.
 - **Solvo Platform:** Liderazgo técnico en la migración de bases de datos PostgreSQL a Azure y optimización de infraestructura en la nube.
-- **Automatización de Contenido AI:** Creación de ecosistemas automatizados (ej. canal de YouTube "Colombia desde Colombia") integrando Discord, n8n y herramientas de generación de IA.
+- **Automatización de Contenido AI:** Creación de ecosistemas automatizados integrando Discord, n8n y herramientas de generación de IA.
 - **EFAE Platform & Saberxmas:** Desarrollo core y arquitectura de plataformas educativas.
 
 ---
