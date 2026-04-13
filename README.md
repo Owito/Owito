@@ -1,4 +1,4 @@
-# Hola, soy Carlos Fernando Guerra Arango (Carlos G) 🚀
+# Hola, soy Carlos  🚀
 
 📍 Bogotá, Colombia 🇨🇴
 
@@ -8,7 +8,6 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 
 ## 📬 Contacto:
 - **🔗 LinkedIn:** [Carlos G](https://www.linkedin.com/in/userpersona)
-- **🔗 Twitter / X:** [Carlos G](https://www.twitter.com/carlos_war)
 
 ---
 
