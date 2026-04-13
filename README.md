@@ -1,97 +1,74 @@
-# Carlos G 🚀
+# Hola, soy Carlos Fernando Guerra Arango (Carlos G) 🚀
 
+📍 Bogotá, Colombia 🇨🇴
 
-🇨🇴 Colombia
+**🌟 Senior Software Engineer | Technical Lead | Software Architect 🌟**
 
----
+Soy un líder técnico y arquitecto de software apasionado por el diseño de sistemas distribuidos, la infraestructura en la nube y la automatización inteligente. Combino un sólido background en ingeniería con experiencia profunda en experiencia de usuario (UX) e informática educativa, lo que me permite construir soluciones de software que no solo son técnicamente robustas y escalables, sino también altamente usables.
 
-**🌟 Software engineer  | Technical Lead | Red Teaming 🌟**
-
-## 📬 Contact Me:
-
-- **🔗 LinkedIn:** [Carlos G](https://www.linkedin.com/in/consultordigitalcarlosguerra/)
-- **🔗 Twitter:** [Carlos G](https://www.twitter.com/carlos_war)
+## 📬 Contacto:
+- **🔗 LinkedIn:** [Carlos G](https://www.linkedin.com/in/userpersona)
+- **🔗 Twitter / X:** [Carlos G](https://www.twitter.com/carlos_war)
 
 ---
 
-## 🛠️ My Toolbox:
+## 🛠️ Mi Stack Tecnológico:
 
-**Languages and Technologies:**
+**Arquitectura y Backend:**
+- **Lenguajes:** Go, Rust, Python, C, PHP, Java.
+- **Diseño de Software:** Domain-Driven Design (DDD), Arquitectura Hexagonal, API REST, Microservicios, Privacy by Design.
 
-- **Frontend:** HTML, CSS3, JavaScript
-- **Backend:** PHP, Java (Intermediate)
-- **Version Control:** Git, GitHub
-- **Design Tools:** Figma, Adobe Suite (Premiere, Audition, Illustrator), Canva
-- **E-Learning:** Articulate 360, Adobe Captivate, Moodle, Exelearning, web layout
+**Cloud, DevOps e Infraestructura (IaC):**
+- **Plataformas:** Azure, DigitalOcean, Hetzner Cloud.
+- **Contenedores y Orquestación:** Docker, Kubernetes (Minikube).
+- **Herramientas:** Terraform, flujos de CI/CD, entornos Linux (Ubuntu, Alpine, Mint).
 
-**Frameworks and Methodologies:**
+**IA y Automatización:**
+- Implementación de flujos con n8n, Gemini API y frameworks multi-agente (OpenClaw).
 
-- Design Thinking, Journey Map, Proposal Value Canvas
-- SCRUM, Lean Canvas
-
----
-
-## 🧠 Key Skills:
-
-- Information Architecture
-- UX Research
-- Wireframing and Prototyping
-- Visual Design
-- Front-End Development
-- Accessibility and Gamification
+**Frontend y UX/UI:**
+- **Web:** HTML5, CSS3, JavaScript.
+- **Diseño y Prototipado:** Figma, Adobe Suite, Wireframing, UX Research.
 
 ---
 
-## 📚 Academic Background:
-
-- **Software Engineering**  
-  Politécnico Grancolombiano (2023-Present)
-- **Master in Educational Informatics**  
-  Universidad de la Sabana (2011-2015)
-- **Speech Therapist**  
-  Universidad de Pamplona (2006-2011)
+## 🧠 Habilidades Clave:
+- Arquitectura de Componentes Distribuidos.
+- Liderazgo Técnico y Gestión de Equipos Ágiles (SCRUM).
+- Migración de Bases de Datos y Optimización de Rendimiento.
+- Integración de Inteligencia Artificial en flujos de negocio.
+- Accesibilidad, Gamificación y Arquitectura de la Información.
 
 ---
 
-## 💼 Professional Experience:
+## 🌟 Proyectos Destacados:
 
-- **UX Engineer**  
-  (2020-Present)
-  - UX research, prototyping, and front-end development.
-- **Senior Instructional Designer and Educational Platform Developer at EFAE**  
-  (2023-2024)
-  - Information architecture and educational platform development.
-- **Senior Instructional Designer / Fundación Universitaria del Área Andina**  
-  (2022-2023)
-  - Implementation of agile methodologies and educational product design.
-- **UX Developer / Orange Mia!**  
-  (2023)
-  - User research and prototyping in Figma.
-- **Senior Instructional Designer / FUNDEINCO**  
-  (2020-2022)
-  - Design and prototyping of educational interfaces.
-- **Professor / Universidad Manuela Beltrán**  
-  (2017-2018)
-  - Curriculum development and academic practice supervision.
+- **PoliMarket:** Diseño e implementación de una arquitectura de componentes distribuidos con separación estricta de capas. Backend desarrollado en **Go** (API REST sin frameworks) y cliente CLI en **Rust**, con despliegue automatizado en Render y GitHub Pages.
+- **Solvo Platform:** Liderazgo técnico en la migración de bases de datos PostgreSQL a Azure y optimización de infraestructura en la nube.
+- **Automatización de Contenido AI:** Creación de ecosistemas automatizados (ej. canal de YouTube "Colombia desde Colombia") integrando Discord, n8n y herramientas de generación de IA.
+- **EFAE Platform & Saberxmas:** Desarrollo core y arquitectura de plataformas educativas.
 
 ---
 
-## 🌟 Notable Projects:
+## 💼 Experiencia Profesional Reciente:
 
-- **Podcast:** [Terapia con TIC](https://open.spotify.com/show/3J289hNoyg9RofTCTPILB4), [Desayuno Empresarial](https://open.spotify.com/show/7exCMiCoU8o0YtCIbJGNdt)
-- **Online Courses:** [Teacher Preparation Course](https://saberxmas.com)
-- **Web Projects:** [Virtualization of courses at Universidad San Buenaventura](https://www.youtube.com/watch?v=DJaF6V8DSZc), [Orange Mia Website Development](https://orangemia.com/)
-
----
-
-## 🏆 Portfolio and Demonstrations:
-
-- **Serious Game Director:** [Contrapunto](https://www.youtube.com/watch?v=oJwIz9ugd3o)
-- **Voice Assistant (VUI) Design**
-- **NFT App UI:** [NFT App](https://www.figma.com/file/25V62kAsqJdCFfmIWKpPy8/App-NFT?type=design&node-id=0%3A1&mode=design&t=GacTtJZP801dPAYp-1)
-- **EFAE Platform Developer:** [EFAE Education](https://efaeeducation.com/)
-- **EFAE Landing Developer:** [Saberxmas](https://saberxmas.com/)
+- **Senior Technical Lead / Software Architect** *(Actual)*
+  - Liderazgo en diseño de arquitecturas de software, migración de infraestructura a la nube (Azure) y automatización de procesos mediante IA.
+  - Investigación de usuarios, prototipado de alta fidelidad y desarrollo frontend.
+- **Senior Instructional Designer y Plataformas Educativas** *(2020 - 2024)*
+  - Diseño de productos educativos e implementación de metodologías ágiles en diversas instituciones (EFAE, Fundación Universitaria del Área Andina, FUNDEINCO).
+- **UX Developer / Orange Mia!** *(2023)*
+  - Desarrollo web e investigación enfocada en la experiencia de usuario.
 
 ---
 
-Explore my projects and collaborations! I'm always open to new opportunities and challenges. 🌟
+## 📚 Formación Académica:
+
+- **Máster en Arquitectura de Software** | Politécnico Grancolombiano *(2026-Presente)*
+- **Ingeniería de Software** | Politécnico Grancolombiano 
+- **Magíster en Informática Educativa** | Universidad de La Sabana
+- **Fonoaudiólogo** | Universidad de Pamplona
+
+---
+
+*Explora mis repositorios para ver cómo aplico patrones de diseño y código limpio. ¡Siempre abierto a hablar sobre arquitectura de software, Rust, Go y nuevos retos tecnológicos!* 🌟
