@@ -76,4 +76,5 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=teodev77&theme=darcula)
 ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=teodev77&theme=darcula)
 ![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=teodev77&theme=darcula)
+
 *Explora mis repositorios para ver cómo aplico patrones de diseño y código limpio. ¡Siempre abierto a hablar sobre arquitectura de software, Rust, Go y nuevos retos tecnológicos!* 🌟
