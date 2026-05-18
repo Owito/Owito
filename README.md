@@ -23,7 +23,7 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 - **Herramientas:** Terraform, flujos de CI/CD, entornos Linux (Ubuntu, Alpine, Mint).
 
 **IA y Automatización:**
-- Implementación de flujos con n8n, Gemini API y frameworks multi-agente (OpenClaw).
+- Implementación de flujos con n8n, Gemini API y frameworks multi-agente.
 
 **Frontend y UX/UI:**
 - **Web:** HTML5, CSS3, JavaScript.
