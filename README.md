@@ -1,17 +1,17 @@
-# Hola, soy Carlos  🚀
+# Hola, soy Carlos  
 
-📍 Bogotá, Colombia 🇨🇴
+Bogotá, Colombia 🇨🇴
 
-**🌟 Senior Software Engineer | Technical Lead | Software Architect 🌟**
+** Senior Software Engineer | Technical Lead | Software Architect **
 
 Soy un líder técnico y arquitecto de software apasionado por el diseño de sistemas distribuidos, la infraestructura en la nube y la automatización inteligente. Combino un sólido background en ingeniería con experiencia profunda en experiencia de usuario (UX) e informática educativa, lo que me permite construir soluciones de software que no solo son técnicamente robustas y escalables, sino también altamente usables.
 
-## 📬 Contacto:
+## Contacto:
 - **🔗 LinkedIn:** [Carlos G](https://www.linkedin.com/in/userpersona)
 
 ---
 
-## 🛠️ Mi Stack Tecnológico:
+## Mi Stack Tecnológico:
 
 **Arquitectura y Backend:**
 - **Lenguajes:** Go, Rust, Python, C, PHP, Java.
@@ -31,7 +31,7 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 
 ---
 
-## 🧠 Habilidades Clave:
+## Habilidades Clave:
 - Arquitectura de Componentes Distribuidos.
 - Liderazgo Técnico y Gestión de Equipos Ágiles (SCRUM).
 - Migración de Bases de Datos y Optimización de Rendimiento.
@@ -40,8 +40,9 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 
 ---
 
-## 🌟 Proyectos Destacados:
+## Proyectos Destacados:
 
+- **Margoth - Rehabilitación Cognitiva y del Lenguaje:** Aplicación de escritorio 100% offline para intervención y rehabilitación cognitiva y del lenguaje.
 - **PoliMarket:** Diseño e implementación de una arquitectura de componentes distribuidos con separación estricta de capas. Backend desarrollado en **Go** (API REST sin frameworks) y cliente CLI en **Rust**, con despliegue automatizado en Render y GitHub Pages.
 - **Solvo Platform:** Liderazgo técnico en la migración de bases de datos PostgreSQL a Azure y optimización de infraestructura en la nube.
 - **Automatización de Contenido AI:** Creación de ecosistemas automatizados integrando Discord, n8n y herramientas de generación de IA.
@@ -49,7 +50,7 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 
 ---
 
-## 💼 Experiencia Profesional Reciente:
+## Experiencia Profesional Reciente:
 
 - **Senior Technical Lead / Software Architect** *(Actual)*
   - Liderazgo en diseño de arquitecturas de software, migración de infraestructura a la nube (Azure) y automatización de procesos mediante IA.
@@ -61,7 +62,7 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 
 ---
 
-## 📚 Formación Académica:
+## Formación Académica:
 
 - **Máster en Arquitectura de Software** | Politécnico Grancolombiano *(2026-Presente)*
 - **Ingeniería de Software** | Politécnico Grancolombiano 
