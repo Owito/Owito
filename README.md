@@ -2,7 +2,7 @@
 
 Bogotá, Colombia 🇨🇴
 
-** Senior Software Engineer | Technical Lead | Software Architect **
+ Senior Software Engineer | Technical Lead | Software Architect 
 
 Soy un líder técnico y arquitecto de software apasionado por el diseño de sistemas distribuidos, la infraestructura en la nube y la automatización inteligente. Combino un sólido background en ingeniería con experiencia profunda en experiencia de usuario (UX) e informática educativa, lo que me permite construir soluciones de software que no solo son técnicamente robustas y escalables, sino también altamente usables.
 
