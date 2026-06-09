@@ -26,7 +26,7 @@ Soy un líder técnico y arquitecto de software apasionado por el diseño de sis
 - Implementación de flujos con n8n, Gemini API y frameworks multi-agente.
 
 **Frontend y UX/UI:**
-- **Web:** HTML5, CSS3, JavaScript.
+- **Web:** HTML5, CSS3, JavaScript, Typescript, Kotlin.
 - **Diseño y Prototipado:** Figma, Adobe Suite, Wireframing, UX Research.
 
 ---
