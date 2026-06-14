@@ -13,6 +13,11 @@
 <img src="https://img.shields.io/github/followers/Owito?style=for-the-badge&color=00F7FF&labelColor=0D1117&logo=github&logoColor=00F7FF&label=SEGUIDORES" />
 <img src="https://img.shields.io/badge/BOGOT%C3%81-COLOMBIA-9D00FF?style=for-the-badge&labelColor=0D1117&logo=googlemaps&logoColor=9D00FF" />
 
+<br/><br/>
+
+<a href="README.md"><img src="https://img.shields.io/badge/ESPA%C3%91OL-00F7FF?style=for-the-badge&labelColor=0D1117" /></a>
+<a href="README_EN.md"><img src="https://img.shields.io/badge/ENGLISH-555555?style=for-the-badge&labelColor=0D1117" /></a>
+
 </div>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
