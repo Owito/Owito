@@ -114,6 +114,8 @@ Líder técnico y arquitecto de software con foco en **sistemas distribuidos, in
 
 Siempre abierto a hablar de **arquitectura, Rust, Go, cloud y nuevos retos**. Explora mis repos para ver cómo aplico patrones de diseño y código limpio.
 
+<a href="https://www.linkedin.com/in/userpersona/"><img src="https://img.shields.io/badge/Conecta_en_LinkedIn-0D1117?style=for-the-badge&logo=linkedin&logoColor=00F7FF" /></a>
+
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF006E,50:9D00FF,100:00F7FF&height=120&section=footer" />
 
 </div>
