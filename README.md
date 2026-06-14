@@ -6,15 +6,12 @@ Bogotá, Colombia 🇨🇴
 
 Soy un líder técnico y arquitecto de software apasionado por el diseño de sistemas distribuidos, la infraestructura en la nube y la automatización inteligente. Combino un sólido background en ingeniería con experiencia profunda en experiencia de usuario (UX) e informática educativa, lo que me permite construir soluciones de software que no solo son técnicamente robustas y escalables, sino también altamente usables.
 
-## Contacto:
-- **🔗 LinkedIn:** [Carlos G](https://www.linkedin.com/in/userpersona)
-
 ---
 
 ## Mi Stack Tecnológico:
 
 **Arquitectura y Backend:**
-- **Lenguajes:** Go, Rust, Python, C, PHP, Java.
+- **Lenguajes:** Python, TypeScript, Go, PHP, Java, Kotlin, Rust, C.
 - **Diseño de Software:** Domain-Driven Design (DDD), Arquitectura Hexagonal, API REST, Microservicios, Privacy by Design.
 
 **Cloud, DevOps e Infraestructura (IaC):**
