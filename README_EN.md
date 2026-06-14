@@ -114,6 +114,8 @@ Technical lead and software architect focused on **distributed systems, cloud in
 
 Always open to talk about **architecture, Rust, Go, cloud and new challenges**. Explore my repos to see how I apply design patterns and clean code.
 
+<a href="https://www.linkedin.com/in/userpersona/"><img src="https://img.shields.io/badge/Connect_on_LinkedIn-0D1117?style=for-the-badge&logo=linkedin&logoColor=00F7FF" /></a>
+
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF006E,50:9D00FF,100:00F7FF&height=120&section=footer" />
 
 </div>
