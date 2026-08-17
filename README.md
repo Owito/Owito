@@ -8,7 +8,7 @@
 Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatización basada en IA. Vengo además de la UX y la informática educativa, así que no separo "que funcione" de "que alguien pueda usarlo": lo mismo escribo el Bicep del ambiente que el research con usuarios que decide qué se construye.
 
 **Abierto a** posiciones de Arquitectura de Software, AI/GenAI Engineering y Cloud.<br>
-[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [fgoguerra@gmail.com](mailto:fgoguerra@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [devtalleswar@gmail.com](mailto:devtalleswar@gmail.com)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stats-es-dark.svg">
@@ -110,4 +110,4 @@ Desarrollo web e investigación centrada en el usuario.
 ## 06 · Contacto
 
 ¿Un rol, un proyecto o una segunda opinión sobre una arquitectura?<br>
-[fgoguerra@gmail.com](mailto:fgoguerra@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)
+[devtalleswar@gmail.com](mailto:devtalleswar@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)

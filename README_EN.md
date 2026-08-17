@@ -8,7 +8,7 @@
 I design and ship distributed systems on Azure, with AI-driven automation on top. I also come from UX and educational technology, so I don't treat "it works" and "someone can actually use it" as separate problems: I write the Bicep for the environment and the user research that decides what gets built.
 
 **Open to** Software Architecture, AI/GenAI Engineering and Cloud roles.<br>
-[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [fgoguerra@gmail.com](mailto:fgoguerra@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [devtalleswar@gmail.com](mailto:devtalleswar@gmail.com)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stats-en-dark.svg">
@@ -110,4 +110,4 @@ Web development and user-centered research.
 ## 06 · Contact
 
 A role, a project, or a second opinion on an architecture?<br>
-[fgoguerra@gmail.com](mailto:fgoguerra@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)
+[devtalleswar@gmail.com](mailto:devtalleswar@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)
