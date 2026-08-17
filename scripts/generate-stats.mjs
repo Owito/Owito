@@ -64,6 +64,9 @@ const PAD = 4;
 
 const COPY = {
   es: {
+    role: 'Arquitecto de Software · Senior Technical Lead',
+    place: 'Bogotá, Colombia',
+    statsTitle: 'Actividad',
     metrics: [
       'Contribuciones · 12 meses',
       'Pull requests integrados',
@@ -76,6 +79,9 @@ const COPY = {
     months: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
   },
   en: {
+    role: 'Software Architect · Senior Technical Lead',
+    place: 'Bogotá, Colombia',
+    statsTitle: 'Activity',
     metrics: [
       'Contributions · 12 months',
       'Pull requests merged',
@@ -213,6 +219,45 @@ ${body}
 `;
 }
 
+/** Micro-etiqueta en versalitas con tracking amplio, el rótulo del folleto. */
+function label(x, y, text, theme, { anchor = 'start', color } = {}) {
+  return `  <text x="${x}" y="${y}" ${anchor === 'end' ? 'text-anchor="end" ' : ''}font-family="${FONT}" font-size="10" font-weight="500" fill="${color || theme.muted}" letter-spacing="2.4">${esc(String(text).toUpperCase())}</text>\n`;
+}
+
+/**
+ * Cabecera de sección: rótulo a la izquierda y una regla fina que corre hasta el
+ * borde derecho. Es el motivo "PROJECT 01 ————" de la referencia.
+ */
+function sectionHead(y, text, theme, trailing) {
+  const textW = String(text).length * 7.4 + 18;
+  let out = label(PAD, y, text, theme);
+  const ruleEnd = trailing ? W - PAD - (String(trailing).length * 5.6 + 14) : W - PAD;
+  out += `  <line x1="${PAD + textW}" y1="${y - 4}" x2="${ruleEnd}" y2="${y - 4}" stroke="${theme.rule}" stroke-width="1"/>\n`;
+  if (trailing) {
+    out += `  <text x="${W - PAD}" y="${y}" text-anchor="end" font-family="${MONO}" font-size="10" fill="${theme.muted}">${esc(trailing)}</text>\n`;
+  }
+  return out;
+}
+
+/** Portada: el nombre en display ligero y muy tracked, todo en escala de grises. */
+function coverCard({ theme, locale }) {
+  const t = COPY[locale];
+  const height = 150;
+
+  let body = `  <line x1="${PAD}" y1="18" x2="${W - PAD}" y2="18" stroke="${theme.rule}" stroke-width="1"/>\n`;
+  body += `  <text x="${PAD}" y="82" font-family="${FONT}" font-size="46" font-weight="300" fill="${theme.ink}" letter-spacing="9">CARLOS G</text>\n`;
+  body += label(PAD, 110, t.role, theme);
+  body += `  <text x="${W - PAD}" y="82" text-anchor="end" font-family="${MONO}" font-size="10" fill="${theme.muted}">${esc(t.place)}</text>\n`;
+  body += `  <text x="${W - PAD}" y="110" text-anchor="end" font-family="${MONO}" font-size="10" fill="${theme.muted}">github.com/${esc(USERNAME)}</text>\n`;
+  body += `  <line x1="${PAD}" y1="132" x2="${W - PAD}" y2="132" stroke="${theme.rule}" stroke-width="1"/>\n`;
+
+  return shell(W, height, theme, body);
+}
+
+/**
+ * Métricas como el índice del folleto: número de orden, rótulo en versalitas,
+ * valor alineado a la derecha y una hairline cerrando cada fila.
+ */
 function metricsCard({ data, theme, locale, stamp, includePrivate }) {
   const t = COPY[locale];
   const fmt = nf(locale);
@@ -224,30 +269,32 @@ function metricsCard({ data, theme, locale, stamp, includePrivate }) {
     fmt.format(data.repoCount),
     `${share}%`,
   ];
-  const labels = [...t.metrics];
 
-  // Sin PAT no hay dato de repos privados: se omite la columna en vez de mentir.
+  // Sin PAT no hay dato de repos privados: se omite la fila en vez de mentir.
   const count = includePrivate ? 4 : 3;
-  const height = 128;
-  const colW = (W - PAD * 2) / count;
+  const rowH = 46;
+  const startY = 62;
+  // Se mide desde la última hairline y no desde el número de filas: así el aire
+  // de cierre es constante y no crece con cada fila añadida.
+  const height = startY + (count - 1) * rowH + 22 + 14;
 
-  let body = `  <line x1="${PAD}" y1="12" x2="${W - PAD}" y2="12" stroke="${theme.rule}" stroke-width="1"/>\n`;
+  let body = sectionHead(28, t.statsTitle, theme, `${t.updated} ${stamp}`);
 
   for (let i = 0; i < count; i += 1) {
-    const x = PAD + colW * i;
-    body += `  <text x="${x}" y="62" font-family="${FONT}" font-size="34" font-weight="600" fill="${theme.ink}" letter-spacing="-0.6">${esc(values[i])}</text>\n`;
-    body += `  <text x="${x}" y="86" font-family="${FONT}" font-size="11" font-weight="500" fill="${theme.muted}" letter-spacing="0.9">${esc(labels[i].toUpperCase())}</text>\n`;
-    if (i > 0) {
-      body += `  <line x1="${x - 24}" y1="34" x2="${x - 24}" y2="90" stroke="${theme.rule}" stroke-width="1"/>\n`;
-    }
+    const y = startY + i * rowH;
+    body += `  <text x="${PAD}" y="${y}" font-family="${MONO}" font-size="10" fill="${theme.muted}">${String(i + 1).padStart(2, '0')}</text>\n`;
+    body += label(PAD + 42, y, t.metrics[i], theme, { color: theme.ink });
+    body += `  <text x="${W - PAD}" y="${y + 6}" text-anchor="end" font-family="${FONT}" font-size="30" font-weight="300" fill="${theme.ink}" letter-spacing="-0.4">${esc(values[i])}</text>\n`;
+    body += `  <line x1="${PAD}" y1="${y + 22}" x2="${W - PAD}" y2="${y + 22}" stroke="${theme.rule}" stroke-width="1"/>\n`;
   }
-
-  body += `  <line x1="${PAD}" y1="108" x2="${W - PAD}" y2="108" stroke="${theme.rule}" stroke-width="1"/>\n`;
-  body += `  <text x="${PAD}" y="123" font-family="${MONO}" font-size="10" fill="${theme.muted}">${esc(`${t.updated} ${stamp}`)}</text>\n`;
 
   return shell(W, height, theme, body);
 }
 
+/**
+ * Lenguajes: la barra se dibuja SOBRE la hairline de la fila, así que el mismo
+ * trazo hace de separador y de escala. Un elemento menos que un track aparte.
+ */
 function languagesCard({ data, theme, locale, top = 6 }) {
   const t = COPY[locale];
   const entries = [...data.languages.entries()].sort((a, b) => b[1] - a[1]);
@@ -257,30 +304,26 @@ function languagesCard({ data, theme, locale, top = 6 }) {
     pct: (size / total) * 100,
   }));
 
-  const rowH = 30;
-  const startY = 58;
-  const height = startY + rows.length * rowH + 22;
+  const rowH = 34;
+  const startY = 66;
+  const height = startY + (rows.length - 1) * rowH + 18;
 
-  const labelW = 130;
-  const pctW = 54;
-  const barX = PAD + labelW;
-  const barW = W - PAD * 2 - labelW - pctW;
+  const barX = PAD + 150;
+  const barW = W - PAD * 2 - 150 - 66;
   const maxPct = rows[0]?.pct || 1;
 
-  // Sin regla superior ni inferior: esta tarjeta se apila bajo la de métricas,
-  // que ya cierra con una hairline. Dos reglas juntas leen como ruido.
-  let body = `  <text x="${PAD}" y="36" font-family="${FONT}" font-size="11" font-weight="500" fill="${theme.muted}" letter-spacing="0.9">${esc(t.langsTitle.toUpperCase())}</text>\n`;
-  body += `  <text x="${W - PAD}" y="36" text-anchor="end" font-family="${MONO}" font-size="10" fill="${theme.muted}">${esc(t.langsNote(data.repoCount))}</text>\n`;
+  let body = sectionHead(28, t.langsTitle, theme, t.langsNote(data.repoCount));
 
   rows.forEach((row, i) => {
     const y = startY + i * rowH;
     // Escala relativa al lenguaje dominante: con un 74% arriba, una escala
-    // absoluta 0-100 aplasta todo lo demás hasta hacerlo ilegible.
-    const w = Math.max(2, (row.pct / maxPct) * barW);
-    body += `  <text x="${PAD}" y="${y + 4}" font-family="${FONT}" font-size="13" fill="${theme.ink}">${esc(row.name)}</text>\n`;
-    body += `  <rect x="${barX}" y="${y - 5}" width="${barW}" height="6" rx="3" fill="${theme.track}"/>\n`;
-    body += `  <rect x="${barX}" y="${y - 5}" width="${w.toFixed(1)}" height="6" rx="3" fill="${theme.bar}"/>\n`;
-    body += `  <text x="${W - PAD}" y="${y + 4}" text-anchor="end" font-family="${MONO}" font-size="12" fill="${theme.muted}">${row.pct.toFixed(1)}%</text>\n`;
+    // absoluta 0-100 aplasta todo lo demás hasta hacerlo ilegible. La
+    // proporción entre barras se conserva porque el origen sigue siendo cero.
+    const w = Math.max(3, (row.pct / maxPct) * barW);
+    body += `  <text x="${PAD}" y="${y + 4}" font-family="${FONT}" font-size="13" font-weight="400" fill="${theme.ink}">${esc(row.name)}</text>\n`;
+    body += `  <line x1="${barX}" y1="${y}" x2="${barX + barW}" y2="${y}" stroke="${theme.rule}" stroke-width="1"/>\n`;
+    body += `  <rect x="${barX}" y="${y - 2}" width="${w.toFixed(1)}" height="4" fill="${theme.bar}"/>\n`;
+    body += `  <text x="${W - PAD}" y="${y + 4}" text-anchor="end" font-family="${MONO}" font-size="11" fill="${theme.muted}">${row.pct.toFixed(1)}%</text>\n`;
   });
 
   return shell(W, height, theme, body);
@@ -305,6 +348,11 @@ await mkdir(OUT, { recursive: true });
 for (const locale of ['es', 'en']) {
   const stamp = `${now.getUTCDate()} ${COPY[locale].months[now.getUTCMonth()]} ${now.getUTCFullYear()}`;
   for (const [mode, theme] of Object.entries(THEMES)) {
+    await writeFile(
+      join(OUT, `cover-${locale}-${mode}.svg`),
+      coverCard({ theme, locale }),
+      'utf8',
+    );
     await writeFile(
       join(OUT, `stats-${locale}-${mode}.svg`),
       metricsCard({ data, theme, locale, stamp, includePrivate }),
