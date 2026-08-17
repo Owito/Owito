@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="150" viewBox="0 0 860 150" role="img" aria-label="GitHub activity">
+  <rect width="860" height="150" fill="#ffffff"/>
+  <line x1="4" y1="18" x2="856" y2="18" stroke="#d1d9e0" stroke-width="1"/>
+  <text x="4" y="82" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="46" font-weight="300" fill="#1f2328" letter-spacing="9">CARLOS G</text>
+  <text x="4" y="110" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="500" fill="#59636e" letter-spacing="2.4">SOFTWARE ARCHITECT · SENIOR TECHNICAL LEAD</text>
+  <text x="856" y="82" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#59636e">Bogotá, Colombia</text>
+  <text x="856" y="110" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#59636e">github.com/Owito</text>
+  <line x1="4" y1="132" x2="856" y2="132" stroke="#d1d9e0" stroke-width="1"/>
+
+</svg>

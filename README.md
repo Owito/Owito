@@ -1,121 +1,121 @@
-<!-- ====================== HEADER NEÓN ====================== -->
-<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cover-es-dark.svg">
+  <img alt="Carlos G · Arquitecto de Software · Senior Technical Lead · Bogotá, Colombia" src="assets/cover-es-light.svg" width="100%">
+</picture>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:00F7FF,50:9D00FF,100:FF006E&height=210&section=header&text=CARLOS%20G&fontSize=70&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Senior%20Technical%20Lead%20%E2%80%A2%20Software%20Architect&descSize=18&descAlignY=58" />
+<sub>Español · <a href="README_EN.md">English</a></sub>
 
-<a href="https://github.com/Owito">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&pause=900&color=00F7FF&center=true&vCenter=true&width=620&height=45&lines=%3E+Arquitecto+de+sistemas+distribuidos;%3E+Cloud+%2B+DevOps+%2B+IaC+sobre+Azure;%3E+Automatizaci%C3%B3n+con+IA+y+multi-agentes;%3E+Del+research+UX+al+deploy+en+producci%C3%B3n" alt="typing" />
-</a>
+Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatización
+basada en IA. Vengo además de la UX y la informática educativa, así que no separo
+"que funcione" de "que alguien pueda usarlo": lo mismo escribo el Bicep del
+ambiente que el research con usuarios que decide qué se construye.
 
-<br/>
+**Abierto a** posiciones de Arquitectura de Software, AI/GenAI Engineering y Cloud.
+[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [fgoguerra@gmail.com](mailto:fgoguerra@gmail.com)
 
-<img src="https://komarev.com/ghpvc/?username=Owito&style=for-the-badge&color=FF006E&labelColor=0D1117&label=VISITAS" />
-<img src="https://img.shields.io/github/followers/Owito?style=for-the-badge&color=00F7FF&labelColor=0D1117&logo=github&logoColor=00F7FF&label=SEGUIDORES" />
-<img src="https://img.shields.io/badge/BOGOT%C3%81-COLOMBIA-9D00FF?style=for-the-badge&labelColor=0D1117&logo=googlemaps&logoColor=9D00FF" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-es-dark.svg">
+  <img alt="Contribuciones, pull requests integrados y repositorios" src="assets/stats-es-light.svg" width="100%">
+</picture>
 
-<br/><br/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/langs-es-dark.svg">
+  <img alt="Distribución del código por lenguaje" src="assets/langs-es-light.svg" width="100%">
+</picture>
 
-<a href="README.md"><img src="https://img.shields.io/badge/ESPA%C3%91OL-00F7FF?style=for-the-badge&labelColor=0D1117" /></a>
-<a href="README_EN.md"><img src="https://img.shields.io/badge/ENGLISH-555555?style=for-the-badge&labelColor=0D1117" /></a>
+<sub>Estas tarjetas se generan desde la API de GitHub y se versionan en este repositorio
+(<a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>), así que no dependen
+de ningún servicio externo que pueda caerse. Sin rachas: la mayor parte de mi trabajo ocurre
+en repositorios privados de cliente y en ciclos por entrega, no en commits diarios.</sub>
 
-</div>
+## 01 · Trabajo seleccionado
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
+**[n8n-nodes-icd11](https://github.com/Owito/n8n-nodes-icd11)**
+Nodo comunitario que expone la API ICD-11 de la OMS dentro de n8n. Publicado con
+*trusted publishing* vía OIDC: cero tokens de larga vida en el pipeline.
+<sub>TypeScript · n8n SDK · OIDC &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/n8n-nodes-icd11">npm</a></sub>
 
-## `// whoami`
+**[Rehabilitación Continua CO](https://github.com/Owito/rehabilitacion-continua-co)**
+Directorio de educación continua en rehabilitación. Tres proveedores de LLM fallaron
+la extracción, así que el mecanismo real terminó siendo curaduría verificada sobre sitemaps.
+<sub>Astro · TypeScript · CI/CD &nbsp;·&nbsp; <a href="https://owito.github.io/rehabilitacion-continua-co/">en vivo</a></sub>
 
-> **Diseño software que escala sin perder de vista a quien lo usa.**
+**[Margoth](https://github.com/Owito/margoth)**
+Aplicación de escritorio para rehabilitación cognitiva y del lenguaje. 100% offline
+por diseño: el dato clínico nunca sale del equipo.
+<sub>Python · PyQt6 · Privacy by Design</sub>
 
-Líder técnico y arquitecto de software con foco en **sistemas distribuidos, infraestructura cloud y automatización inteligente**. Combino ingeniería sólida con experiencia profunda en **UX e informática educativa** — construyo soluciones técnicamente robustas, escalables y *realmente usables*. Del whiteboard de arquitectura al pipeline de CI/CD, cubro el ciclo completo.
+**[PoliMarket](https://github.com/Owito/polimarket-arquitectura)**
+Arquitectura de componentes distribuidos con separación estricta de capas: API REST
+en Go sin frameworks y cliente CLI en Rust.
+<sub>Go · Rust · Render &nbsp;·&nbsp; <a href="https://owito.github.io/polimarket-arquitectura/">en vivo</a></sub>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
+**[NERV UI](https://github.com/Owito/nerv-ui)**
+Sistema de diseño CSS open source, distribuido por CDN bajo licencia MIT.
+<sub>CSS · Design System · jsDelivr &nbsp;·&nbsp; <a href="https://owito.github.io/nerv-ui/">demo</a></sub>
 
-## `// stack`
+**[Telecom Lab](https://github.com/Owito/telecom-lab)**
+Herramientas web y autocalificador de subnetting/VLSM, sobre un motor de cálculo con pruebas.
+<sub>Astro · TypeScript · Vitest &nbsp;·&nbsp; <a href="https://owito.github.io/telecom-lab/">en vivo</a></sub>
 
-**🧠 Arquitectura & Backend**
+## 02 · Cómo trabajo
 
-![Python](https://img.shields.io/badge/Python-0D1117?style=for-the-badge&logo=python&logoColor=00F7FF)
-![TypeScript](https://img.shields.io/badge/TypeScript-0D1117?style=for-the-badge&logo=typescript&logoColor=00F7FF)
-![Go](https://img.shields.io/badge/Go-0D1117?style=for-the-badge&logo=go&logoColor=00F7FF)
-![Rust](https://img.shields.io/badge/Rust-0D1117?style=for-the-badge&logo=rust&logoColor=00F7FF)
-![PHP](https://img.shields.io/badge/PHP-0D1117?style=for-the-badge&logo=php&logoColor=00F7FF)
-![Java](https://img.shields.io/badge/Java-0D1117?style=for-the-badge&logo=openjdk&logoColor=00F7FF)
-![Kotlin](https://img.shields.io/badge/Kotlin-0D1117?style=for-the-badge&logo=kotlin&logoColor=00F7FF)
+**Infraestructura como código, o no cuenta.**
+Bicep con `what-if` previo, Container Apps, secretos por Key Vault con Managed Identity.
+Ningún secreto vive en el repo.
 
-`DDD` · `Arquitectura Hexagonal` · `Microservicios` · `API REST` · `Privacy by Design`
+**12-Factor como criterio de salida.**
+En el último backend que lideré, el servicio pasó de cumplir 2 de los 12 factores a 9
+antes de que lo diera por desplegable.
 
-**☁️ Cloud · DevOps · IaC**
+**La seguridad va antes del pentest, no después.**
+En la última plataforma que endurecí cerré el 90% de los hallazgos y los validé en
+producción, no en un documento.
 
-![Azure](https://img.shields.io/badge/Azure-0D1117?style=for-the-badge&logo=microsoftazure&logoColor=FF006E)
-![Docker](https://img.shields.io/badge/Docker-0D1117?style=for-the-badge&logo=docker&logoColor=FF006E)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-0D1117?style=for-the-badge&logo=kubernetes&logoColor=FF006E)
-![Terraform](https://img.shields.io/badge/Terraform-0D1117?style=for-the-badge&logo=terraform&logoColor=FF006E)
-![Linux](https://img.shields.io/badge/Linux-0D1117?style=for-the-badge&logo=linux&logoColor=FF006E)
-![DigitalOcean](https://img.shields.io/badge/DigitalOcean-0D1117?style=for-the-badge&logo=digitalocean&logoColor=FF006E)
+**Pruebas donde cambian decisiones.**
+Pirámide real por niveles, no cobertura de vanidad.
 
-**🤖 IA & Automatización**
+**Privacy by Design.**
+Cuando el dato es sensible, el procesamiento es local: Margoth y mi app de notas
+corren modelos de IA 100% offline.
 
-![n8n](https://img.shields.io/badge/n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=9D00FF)
-![Gemini](https://img.shields.io/badge/Gemini%20API-0D1117?style=for-the-badge&logo=googlegemini&logoColor=9D00FF)
-![MultiAgent](https://img.shields.io/badge/Multi--Agent-0D1117?style=for-the-badge&logo=openaigym&logoColor=9D00FF)
+## 03 · Stack
 
-**🎨 Frontend & UX/UI**
+**Arquitectura y backend**
+TypeScript · Kotlin · Python · Go · Rust · Java · PHP
+DDD · Arquitectura hexagonal · Microservicios · API REST · 12-Factor
 
-![JavaScript](https://img.shields.io/badge/JavaScript-0D1117?style=for-the-badge&logo=javascript&logoColor=00F7FF)
-![HTML5](https://img.shields.io/badge/HTML5-0D1117?style=for-the-badge&logo=html5&logoColor=00F7FF)
-![CSS3](https://img.shields.io/badge/CSS3-0D1117?style=for-the-badge&logo=css3&logoColor=00F7FF)
-![Figma](https://img.shields.io/badge/Figma-0D1117?style=for-the-badge&logo=figma&logoColor=00F7FF)
+**Cloud, DevOps e IaC**
+Azure (Container Apps, PostgreSQL, Key Vault, App Gateway) · Docker · Kubernetes
+Bicep · Terraform · Azure DevOps · GitHub Actions · Linux
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
+**IA y automatización**
+n8n · RAG con pgvector · Sistemas multi-agente · APIs de Claude y Gemini
 
-## `// stats`
+**Frontend y UX**
+Astro · React · Jetpack Compose · JavaScript · CSS · Figma
+Heurísticas de Nielsen · Neurodiversity Design System · Accesibilidad
 
-<div align="center">
+## 04 · Trayectoria
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Owito&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&title_color=00F7FF&icon_color=FF006E&text_color=C9D1D9&bg_color=0D1117" />
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Owito&layout=compact&langs_count=8&hide_border=true&title_color=00F7FF&text_color=C9D1D9&bg_color=0D1117" />
+**Senior Technical Lead · Arquitecto de Software** · *actual*
+Arquitectura de plataformas GenIA sobre Azure, migración de PostgreSQL a infraestructura
+gestionada, hardening y automatización con IA. Del diseño de la infraestructura al pipeline.
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Owito&hide_border=true&background=0D1117&stroke=9D00FF&ring=FF006E&fire=FF006E&currStreakNum=FFFFFF&currStreakLabel=00F7FF&sideNums=FFFFFF&sideLabels=00F7FF&dates=8B949E&excludeDaysLabel=8B949E" />
+**Diseñador instruccional senior y plataformas educativas** · *2020 a 2024*
+Producto educativo y metodologías ágiles en EFAE, Área Andina y FUNDEINCO.
 
-<img width="95%" src="https://github-readme-activity-graph.vercel.app/graph?username=Owito&bg_color=0D1117&color=00F7FF&line=FF006E&point=FFFFFF&area=true&hide_border=true&custom_title=Mapa%20de%20contribuciones" />
+**UX Developer · Orange Mia!** · *2023*
+Desarrollo web e investigación centrada en el usuario.
 
-</div>
+## 05 · Formación
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
+**Máster en Arquitectura de Software** · Politécnico Grancolombiano · *en curso*
+**Ingeniería de Software** · Politécnico Grancolombiano
+**Magíster en Informática Educativa** · Universidad de La Sabana
+**Fonoaudiólogo** · Universidad de Pamplona
 
-## `// proyectos_destacados`
+## 06 · Contacto
 
-- **🧩 Margoth — Rehabilitación Cognitiva y del Lenguaje:** App de escritorio 100% offline para intervención y rehabilitación cognitiva y del lenguaje.
-- **🛒 PoliMarket:** Arquitectura de componentes distribuidos con separación estricta de capas. Backend en **Go** (API REST sin frameworks) y cliente CLI en **Rust**, con despliegue automatizado en Render y GitHub Pages.
-- **☁️ Solvo Platform:** Liderazgo técnico en migración de PostgreSQL a Azure y optimización de infraestructura cloud.
-- **⚡ Automatización de Contenido AI:** Ecosistemas automatizados integrando Discord, n8n y herramientas de generación de IA.
-- **🎓 EFAE Platform & Saberxmas:** Desarrollo core y arquitectura de plataformas educativas.
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
-
-## `// experiencia`
-
-- **Senior Technical Lead / Software Architect** *(Actual)* — Diseño de arquitecturas, migración cloud a Azure, automatización con IA, research de usuarios y prototipado de alta fidelidad.
-- **Senior Instructional Designer & Plataformas Educativas** *(2020 – 2024)* — Productos educativos y metodologías ágiles (EFAE, Área Andina, FUNDEINCO).
-- **UX Developer · Orange Mia!** *(2023)* — Desarrollo web e investigación centrada en la experiencia de usuario.
-
-## `// formación`
-
-- 🎓 **Máster en Arquitectura de Software** — Politécnico Grancolombiano *(2026 – Presente)*
-- 🎓 **Ingeniería de Software** — Politécnico Grancolombiano
-- 🎓 **Magíster en Informática Educativa** — Universidad de La Sabana
-- 🎓 **Fonoaudiólogo** — Universidad de Pamplona
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:00F7FF,100:FF006E&height=3" />
-
-<div align="center">
-
-### `> ¿Construimos algo que escale?`
-
-Siempre abierto a hablar de **arquitectura, Rust, Go, cloud y nuevos retos**. Explora mis repos para ver cómo aplico patrones de diseño y código limpio.
-
-<a href="https://www.linkedin.com/in/userpersona/"><img src="https://img.shields.io/badge/Conecta_en_LinkedIn-0D1117?style=for-the-badge&logo=linkedin&logoColor=00F7FF" /></a>
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF006E,50:9D00FF,100:00F7FF&height=120&section=footer" />
-
-</div>
+¿Un rol, un proyecto o una segunda opinión sobre una arquitectura?
+[fgoguerra@gmail.com](mailto:fgoguerra@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)
