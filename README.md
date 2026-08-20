@@ -20,7 +20,7 @@ Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatizac
   <img alt="Distribución del código por lenguaje" src="assets/langs-es-light.svg" width="100%">
 </picture>
 
-<sub>Estas tarjetas se generan desde la API de GitHub y se versionan en este repositorio (<a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>), así que no dependen de ningún servicio externo que pueda caerse. Sin rachas: la mayor parte de mi trabajo ocurre en repositorios privados de cliente y en ciclos por entrega, no en commits diarios.</sub>
+<sub>Estas tarjetas se consultan contra la API de GitHub cada tres horas y se versionan en este repositorio (<a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>), así que no dependen de ningún servicio externo que pueda caerse. La fecha marca cuándo cambiaron las cifras, no cuándo corrió el proceso. Solo lenguajes de programación: el marcado no entra en el reparto. Sin rachas: la mayor parte de mi trabajo ocurre en repositorios privados de cliente y en ciclos por entrega, no en commits diarios.</sub>
 
 ## 01 · Trabajo seleccionado
 
@@ -47,6 +47,12 @@ Aplicación de escritorio para rehabilitación cognitiva y del lenguaje. 100% of
 Arquitectura de componentes distribuidos con separación estricta de capas: API REST en Go sin frameworks y cliente CLI en Rust.
 
 <sub>Go · Rust · Render &nbsp;·&nbsp; <a href="https://owito.github.io/polimarket-arquitectura/">en vivo</a></sub>
+
+#### [Caracter](https://github.com/Owito/caracter)
+
+Audita una interfaz y le pone número a qué tan genérica es. Sin backend y sin telemetría: el análisis corre entero en el navegador, así que nadie ve la UI que estás evaluando.
+
+<sub>TypeScript · Dirección de arte · Sin backend &nbsp;·&nbsp; <a href="https://owito.github.io/caracter/">en vivo</a></sub>
 
 #### [NERV UI](https://github.com/Owito/nerv-ui)
 

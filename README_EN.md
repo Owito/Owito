@@ -20,7 +20,7 @@ I design and ship distributed systems on Azure, with AI-driven automation on top
   <img alt="Code distribution by language" src="assets/langs-en-light.svg" width="100%">
 </picture>
 
-<sub>These cards are generated from the GitHub API and committed to this repository (<a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>), so they don't depend on any third-party service that can go down. No streaks: most of my work happens in private client repositories and in delivery cycles, not in daily commits.</sub>
+<sub>These cards are queried against the GitHub API every three hours and committed to this repository (<a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>), so they don't depend on any third-party service that can go down. The date marks when the numbers changed, not when the job ran. Programming languages only: markup doesn't count towards the split. No streaks: most of my work happens in private client repositories and in delivery cycles, not in daily commits.</sub>
 
 ## 01 · Selected work
 
@@ -47,6 +47,12 @@ Desktop application for cognitive and language rehabilitation. Fully offline by 
 Distributed component architecture with strict layer separation: a framework-free REST API in Go and a CLI client in Rust.
 
 <sub>Go · Rust · Render &nbsp;·&nbsp; <a href="https://owito.github.io/polimarket-arquitectura/">live</a></sub>
+
+#### [Caracter](https://github.com/Owito/caracter)
+
+Audits an interface and puts a number on how generic it is. No backend and no telemetry: the whole analysis runs in the browser, so nobody sees the UI you are evaluating.
+
+<sub>TypeScript · Art direction · No backend &nbsp;·&nbsp; <a href="https://owito.github.io/caracter/">live</a></sub>
 
 #### [NERV UI](https://github.com/Owito/nerv-ui)
 
