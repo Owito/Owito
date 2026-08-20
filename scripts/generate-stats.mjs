@@ -17,7 +17,7 @@
  * degrada sola y omite la métrica de trabajo privado.
  */
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -62,6 +62,13 @@ const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospac
 const W = 860;
 const PAD = 4;
 
+/**
+ * Lenguajes de marcado y de configuración que GitHub cuenta como "lenguaje" pero
+ * que no dicen nada sobre lo que sé escribir. Se excluyen ANTES de calcular el
+ * total, para que los porcentajes sumen sobre código real y no queden diluidos.
+ */
+const EXCLUDED_LANGUAGES = new Set(['HTML']);
+
 const COPY = {
   es: {
     role: 'Arquitecto de Software · Senior Technical Lead',
@@ -73,8 +80,11 @@ const COPY = {
       'Repositorios propios',
       'Trabajo en repos privados',
     ],
+    // Sin PAT solo se ven los repositorios públicos: cambia el rótulo, no el número.
+    metricPublicRepos: 'Repositorios públicos',
     langsTitle: 'Distribución del código',
-    langsNote: (n) => `${n} repositorios propios · sin forks`,
+    langsNote: (n, pub) =>
+      `${n} repositorios ${pub ? 'públicos' : 'propios'} · sin forks ni HTML`,
     updated: 'Actualizado',
     months: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
   },
@@ -88,8 +98,10 @@ const COPY = {
       'Own repositories',
       'Work in private repos',
     ],
+    metricPublicRepos: 'Public repositories',
     langsTitle: 'Code distribution',
-    langsNote: (n) => `${n} own repositories · forks excluded`,
+    langsNote: (n, pub) =>
+      `${n} ${pub ? 'public' : 'own'} repositories · forks and HTML excluded`,
     updated: 'Updated',
     months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   },
@@ -140,14 +152,27 @@ async function rest(path) {
   return (await request(`https://api.github.com${path}`)).json();
 }
 
+/** Igual que `rest`, pero devuelve null en vez de romper si el token no llega. */
+async function restOrNull(path) {
+  try {
+    return await rest(path);
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Los lenguajes se leen por REST y no por GraphQL: la conexión `languages`
  * dispara el límite de complejidad de la API y devuelve 503 de forma
  * sistemática para cuentas con muchos repositorios.
  */
 async function collectLanguages() {
-  const me = await rest('/user');
-  const owned = me.login.toLowerCase() === USERNAME.toLowerCase();
+  // El GITHUB_TOKEN de Actions es un token de instalación de App y `/user`
+  // le responde 403 "Resource not accessible by integration". No es un error
+  // fatal: solo significa que hay que listar por la vía pública y que las
+  // cifras cubrirán únicamente los repositorios públicos.
+  const me = await restOrNull('/user');
+  const owned = me?.login?.toLowerCase() === USERNAME.toLowerCase();
 
   const repos = [];
   for (let page = 1; page <= 10; page += 1) {
@@ -161,13 +186,14 @@ async function collectLanguages() {
 
   const languages = new Map();
   for (const repo of repos) {
-    const bytes = await rest(`/repos/${repo.full_name}/languages`);
-    for (const [name, size] of Object.entries(bytes)) {
+    const bytes = await restOrNull(`/repos/${repo.full_name}/languages`);
+    for (const [name, size] of Object.entries(bytes || {})) {
+      if (EXCLUDED_LANGUAGES.has(name)) continue;
       languages.set(name, (languages.get(name) || 0) + size);
     }
   }
 
-  return { languages, repoCount: repos.length };
+  return { languages, repoCount: repos.length, seesPrivateRepos: owned };
 }
 
 async function collect() {
@@ -190,7 +216,7 @@ async function collect() {
     { login: USERNAME },
   );
 
-  const { languages, repoCount } = await collectLanguages();
+  const { languages, repoCount, seesPrivateRepos } = await collectLanguages();
   const contributions = totals.user.contributionsCollection;
 
   return {
@@ -198,6 +224,7 @@ async function collect() {
     restricted: contributions.restrictedContributionsCount,
     mergedPrs: totals.user.pullRequests.totalCount,
     repoCount,
+    seesPrivateRepos,
     languages,
   };
 }
@@ -283,7 +310,8 @@ function metricsCard({ data, theme, locale, stamp, includePrivate }) {
   for (let i = 0; i < count; i += 1) {
     const y = startY + i * rowH;
     body += `  <text x="${PAD}" y="${y}" font-family="${MONO}" font-size="10" fill="${theme.muted}">${String(i + 1).padStart(2, '0')}</text>\n`;
-    body += label(PAD + 42, y, t.metrics[i], theme, { color: theme.ink });
+    const metric = i === 2 && !data.seesPrivateRepos ? t.metricPublicRepos : t.metrics[i];
+    body += label(PAD + 42, y, metric, theme, { color: theme.ink });
     body += `  <text x="${W - PAD}" y="${y + 6}" text-anchor="end" font-family="${FONT}" font-size="30" font-weight="300" fill="${theme.ink}" letter-spacing="-0.4">${esc(values[i])}</text>\n`;
     body += `  <line x1="${PAD}" y1="${y + 22}" x2="${W - PAD}" y2="${y + 22}" stroke="${theme.rule}" stroke-width="1"/>\n`;
   }
@@ -312,7 +340,7 @@ function languagesCard({ data, theme, locale, top = 6 }) {
   const barW = W - PAD * 2 - 150 - 66;
   const maxPct = rows[0]?.pct || 1;
 
-  let body = sectionHead(28, t.langsTitle, theme, t.langsNote(data.repoCount));
+  let body = sectionHead(28, t.langsTitle, theme, t.langsNote(data.repoCount, !data.seesPrivateRepos));
 
   rows.forEach((row, i) => {
     const y = startY + i * rowH;
@@ -335,37 +363,67 @@ function languagesCard({ data, theme, locale, top = 6 }) {
 
 const data = await collect();
 const includePrivate = data.restricted > 0;
-if (!includePrivate) {
-  console.warn(
-    'Aviso: el token no expone contribuciones privadas. Se omite esa métrica. ' +
-      'Añade un PAT con read:user como secreto STATS_TOKEN para incluirla.',
-  );
+
+/*
+ * Salvaguarda. El GITHUB_TOKEN de Actions solo alcanza lo público: con él las
+ * cifras no se quedan viejas, se DESINFLAN (los repositorios propios pasan de
+ * 87 a los 26 públicos y el reparto de lenguajes se recalcula sobre una muestra
+ * distinta). Publicar eso sería peor que no publicar nada, así que aquí el
+ * proceso se detiene sin tocar las tarjetas ya generadas.
+ */
+if (!data.seesPrivateRepos || !includePrivate) {
+  for (const line of [
+    'AVISO: este token solo ve la actividad pública, así que las tarjetas se',
+    'dejan como están para no publicar cifras a la baja.',
+    'Arreglo: crea un PAT clásico con los permisos `repo` y `read:user` en',
+    '  https://github.com/settings/tokens/new?scopes=repo,read:user',
+    'y guárdalo como secreto del repositorio:',
+    '  gh secret set STATS_TOKEN --repo Owito/Owito',
+  ]) {
+    console.warn(line);
+  }
+  process.exit(0);
+}
+
+/**
+ * La marca de tiempo cambia en cada ejecución, así que compararla haría que el
+ * workflow publicara un commit por hora aunque ningún número se hubiera movido.
+ * Se compara el SVG SIN la marca: el archivo solo se reescribe cuando los datos
+ * cambian de verdad, y así "Actualizado" pasa a significar exactamente eso —
+ * cuándo cambiaron estas cifras — en vez de cuándo corrió el cron.
+ */
+const STAMP = /(?:Actualizado|Updated)[^<]*/g;
+
+async function writeIfChanged(file, content) {
+  const path = join(OUT, file);
+  const previous = await readFile(path, 'utf8').catch(() => null);
+  if (previous && previous.replace(STAMP, '') === content.replace(STAMP, '')) return false;
+  await writeFile(path, content, 'utf8');
+  return true;
 }
 
 const now = new Date();
+const hhmm = `${String(now.getUTCHours()).padStart(2, '0')}:${String(now.getUTCMinutes()).padStart(2, '0')}`;
 await mkdir(OUT, { recursive: true });
 
+let written = 0;
 for (const locale of ['es', 'en']) {
-  const stamp = `${now.getUTCDate()} ${COPY[locale].months[now.getUTCMonth()]} ${now.getUTCFullYear()}`;
+  const stamp = `${now.getUTCDate()} ${COPY[locale].months[now.getUTCMonth()]} ${now.getUTCFullYear()} · ${hhmm} UTC`;
   for (const [mode, theme] of Object.entries(THEMES)) {
-    await writeFile(
-      join(OUT, `cover-${locale}-${mode}.svg`),
-      coverCard({ theme, locale }),
-      'utf8',
-    );
-    await writeFile(
-      join(OUT, `stats-${locale}-${mode}.svg`),
+    written += await writeIfChanged(`cover-${locale}-${mode}.svg`, coverCard({ theme, locale }));
+    written += await writeIfChanged(
+      `stats-${locale}-${mode}.svg`,
       metricsCard({ data, theme, locale, stamp, includePrivate }),
-      'utf8',
     );
-    await writeFile(
-      join(OUT, `langs-${locale}-${mode}.svg`),
+    written += await writeIfChanged(
+      `langs-${locale}-${mode}.svg`,
       languagesCard({ data, theme, locale }),
-      'utf8',
     );
   }
 }
 
 console.log(
-  `OK · ${data.contributions} contribuciones · ${data.mergedPrs} PRs · ${data.repoCount} repos · ${data.languages.size} lenguajes`,
+  `OK · ${data.contributions} contribuciones · ${data.mergedPrs} PRs · ${data.repoCount} repos · ` +
+    `${data.languages.size} lenguajes · ${written} tarjetas reescritas` +
+    `${data.seesPrivateRepos ? '' : ' · solo repositorios públicos'}`,
 );

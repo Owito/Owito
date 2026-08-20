@@ -2,9 +2,16 @@ name: Actualizar tarjetas de actividad
 
 on:
   schedule:
-    # Lunes y jueves a las 06:00 UTC (01:00 en Bogotá).
-    - cron: '0 6 * * 1,4'
+    # Cada 3 horas. Es lo más cerca del tiempo real que llega un README: las
+    # imágenes son archivos del propio repositorio, así que solo se refrescan
+    # cuando hay un commit. El minuto 17 evita el pico de crons en punto, donde
+    # GitHub encola y retrasa los runs.
+    - cron: '17 */3 * * *'
   workflow_dispatch:
+  # Permite forzar el refresco desde fuera:
+  #   gh api repos/Owito/Owito/dispatches -f event_type=refresh-stats
+  repository_dispatch:
+    types: [refresh-stats]
   push:
     branches: [main]
     paths:
@@ -22,16 +29,18 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Generar SVG
         env:
-          # STATS_TOKEN es un PAT con `read:user`; sin él las tarjetas se
-          # generan igual, pero omiten la métrica de trabajo en repos privados.
+          # STATS_TOKEN es un PAT clásico con `read:user` + `repo`. Sin él las
+          # tarjetas se generan igual, pero el GITHUB_TOKEN de Actions solo ve
+          # lo público: omite la métrica de trabajo privado y cuenta únicamente
+          # los repositorios públicos.
           GH_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
         run: node scripts/generate-stats.mjs
@@ -39,7 +48,7 @@ jobs:
       - name: Publicar cambios
         run: |
           if [ -z "$(git status --porcelain assets)" ]; then
-            echo "Sin cambios en las tarjetas."
+            echo "Las cifras no se movieron: no se publica commit."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
