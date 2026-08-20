@@ -375,9 +375,16 @@ if (!data.seesPrivateRepos || !includePrivate) {
   // Diagnóstico: sin esto, "el token no alcanza" no distingue entre un secreto
   // vacío, un PAT fine-grained (que nunca trae scopes) y uno al que le falta un
   // permiso. Solo se imprime la CABECERA de scopes, nunca el token.
+  // El techo de cuota delata el tipo de token: 1000/h es el GITHUB_TOKEN de
+  // Actions (o sea, el secreto llegó vacío y `||` cayó al fallback) y 5000/h es
+  // un PAT de verdad al que le falta un permiso. Son arreglos distintos.
   const probe = await fetch('https://api.github.com/rate_limit', { headers: HEADERS })
-    .then((r) => ({ status: r.status, scopes: r.headers.get('x-oauth-scopes') }))
-    .catch((e) => ({ status: `error: ${e.message}`, scopes: null }));
+    .then(async (r) => ({
+      status: r.status,
+      scopes: r.headers.get('x-oauth-scopes'),
+      limit: r.headers.get('x-ratelimit-limit'),
+    }))
+    .catch((e) => ({ status: `error: ${e.message}`, scopes: null, limit: null }));
 
   for (const line of [
     'AVISO: este token solo ve la actividad pública, así que las tarjetas se',
@@ -386,7 +393,8 @@ if (!data.seesPrivateRepos || !includePrivate) {
     `  · contribuciones privadas ${data.restricted}`,
     `  · repositorios vistos     ${data.repoCount}`,
     `  · HTTP de sondeo          ${probe.status}`,
-    `  · scopes del token        ${probe.scopes ?? '(ninguno: o es fine-grained, o es el GITHUB_TOKEN de Actions, o el secreto llegó vacío)'}`,
+    `  · scopes del token        ${probe.scopes || '(ninguno: PAT fine-grained, o el GITHUB_TOKEN de Actions)'}`,
+    `  · cuota por hora          ${probe.limit} ${probe.limit === '1000' ? '→ es el GITHUB_TOKEN: el secreto STATS_TOKEN llegó vacío' : '→ es un PAT, pero le faltan permisos'}`,
     'Arreglo: crea un PAT clásico con los permisos `repo` y `read:user` en',
     '  https://github.com/settings/tokens/new?scopes=repo,read:user',
     'y guárdalo como secreto del repositorio:',
