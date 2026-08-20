@@ -372,9 +372,21 @@ const includePrivate = data.restricted > 0;
  * proceso se detiene sin tocar las tarjetas ya generadas.
  */
 if (!data.seesPrivateRepos || !includePrivate) {
+  // Diagnóstico: sin esto, "el token no alcanza" no distingue entre un secreto
+  // vacío, un PAT fine-grained (que nunca trae scopes) y uno al que le falta un
+  // permiso. Solo se imprime la CABECERA de scopes, nunca el token.
+  const probe = await fetch('https://api.github.com/rate_limit', { headers: HEADERS })
+    .then((r) => ({ status: r.status, scopes: r.headers.get('x-oauth-scopes') }))
+    .catch((e) => ({ status: `error: ${e.message}`, scopes: null }));
+
   for (const line of [
     'AVISO: este token solo ve la actividad pública, así que las tarjetas se',
     'dejan como están para no publicar cifras a la baja.',
+    `  · ¿lee /user?            ${data.seesPrivateRepos ? 'sí' : 'NO'}`,
+    `  · contribuciones privadas ${data.restricted}`,
+    `  · repositorios vistos     ${data.repoCount}`,
+    `  · HTTP de sondeo          ${probe.status}`,
+    `  · scopes del token        ${probe.scopes ?? '(ninguno: o es fine-grained, o es el GITHUB_TOKEN de Actions, o el secreto llegó vacío)'}`,
     'Arreglo: crea un PAT clásico con los permisos `repo` y `read:user` en',
     '  https://github.com/settings/tokens/new?scopes=repo,read:user',
     'y guárdalo como secreto del repositorio:',
