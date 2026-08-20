@@ -166,23 +166,46 @@ async function restOrNull(path) {
  * dispara el límite de complejidad de la API y devuelve 503 de forma
  * sistemática para cuentas con muchos repositorios.
  */
-async function collectLanguages() {
-  // El GITHUB_TOKEN de Actions es un token de instalación de App y `/user`
-  // le responde 403 "Resource not accessible by integration". No es un error
-  // fatal: solo significa que hay que listar por la vía pública y que las
-  // cifras cubrirán únicamente los repositorios públicos.
-  const me = await restOrNull('/user');
-  const owned = me?.login?.toLowerCase() === USERNAME.toLowerCase();
+/**
+ * Lista los repositorios propios sin forks. Se intenta primero la vía
+ * autenticada, que es la única que incluye los privados, y si el token no la
+ * alcanza se cae a la vía pública.
+ *
+ * Deliberadamente NO se consulta `/user` para decidirlo. Ese endpoint lo
+ * rechazan con 403 tanto el GITHUB_TOKEN de Actions como los PAT fine-grained,
+ * y el permiso para leer el perfil no tiene nada que ver con el permiso para
+ * listar repositorios: preguntarle a `/user` era diagnosticar con el termómetro
+ * equivocado, y bastaba para tumbar la ejecución entera.
+ */
+async function listOwnRepos() {
+  const routes = [
+    (page) => `/user/repos?affiliation=owner&per_page=100&page=${page}`,
+    (page) => `/users/${USERNAME}/repos?type=owner&per_page=100&page=${page}`,
+  ];
 
-  const repos = [];
-  for (let page = 1; page <= 10; page += 1) {
-    const path = owned
-      ? `/user/repos?affiliation=owner&per_page=100&page=${page}`
-      : `/users/${USERNAME}/repos?type=owner&per_page=100&page=${page}`;
-    const batch = await rest(path);
-    repos.push(...batch.filter((r) => !r.fork));
-    if (batch.length < 100) break;
+  for (const route of routes) {
+    const repos = [];
+    let usable = true;
+    for (let page = 1; page <= 10; page += 1) {
+      const batch = await restOrNull(route(page));
+      if (!Array.isArray(batch)) {
+        usable = false;
+        break;
+      }
+      repos.push(...batch.filter((r) => !r.fork));
+      if (batch.length < 100) break;
+    }
+    if (usable) return repos;
   }
+
+  return [];
+}
+
+async function collectLanguages() {
+  const repos = await listOwnRepos();
+  // La prueba honesta de si el token alcanza lo privado no es qué permiso dice
+  // tener, sino si de hecho devolvió algún repositorio privado.
+  const owned = repos.some((r) => r.private);
 
   const languages = new Map();
   for (const repo of repos) {
@@ -389,16 +412,19 @@ if (!data.seesPrivateRepos || !includePrivate) {
   for (const line of [
     'AVISO: este token solo ve la actividad pública, así que las tarjetas se',
     'dejan como están para no publicar cifras a la baja.',
-    `  · ¿lee /user?            ${data.seesPrivateRepos ? 'sí' : 'NO'}`,
-    `  · contribuciones privadas ${data.restricted}`,
-    `  · repositorios vistos     ${data.repoCount}`,
-    `  · HTTP de sondeo          ${probe.status}`,
-    `  · scopes del token        ${probe.scopes || '(ninguno: PAT fine-grained, o el GITHUB_TOKEN de Actions)'}`,
-    `  · cuota por hora          ${probe.limit} ${probe.limit === '1000' ? '→ es el GITHUB_TOKEN: el secreto STATS_TOKEN llegó vacío' : '→ es un PAT, pero le faltan permisos'}`,
-    'Arreglo: crea un PAT clásico con los permisos `repo` y `read:user` en',
+    `  · repositorios propios vistos  ${data.repoCount} (ninguno privado)`,
+    `  · contribuciones privadas      ${data.restricted}`,
+    `  · cuota por hora               ${probe.limit} (HTTP ${probe.status})`,
+    `  · scopes del token             ${probe.scopes || '(ninguno: es un PAT fine-grained o el GITHUB_TOKEN de Actions)'}`,
+    probe.limit === '1000'
+      ? 'Diagnóstico: es el GITHUB_TOKEN de Actions, o sea que el secreto STATS_TOKEN llegó vacío.'
+      : 'Diagnóstico: es un PAT, pero no le llega a los repositorios privados.',
+    'Arreglo: si el PAT es fine-grained, dale "Repository access: All repositories"',
+    'y el permiso "Repository permissions → Metadata: Read-only". Si prefieres el',
+    'camino corto, un PAT clásico con `repo` funciona sin más ajustes:',
     '  https://github.com/settings/tokens/new?scopes=repo,read:user',
-    'y guárdalo como secreto del repositorio:',
-    '  gh secret set STATS_TOKEN --repo Owito/Owito',
+    'El secreto se cambia en:',
+    '  https://github.com/Owito/Owito/settings/secrets/actions',
   ]) {
     console.warn(line);
   }

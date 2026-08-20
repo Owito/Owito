@@ -6,7 +6,7 @@
   <text x="4" y="70" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">TypeScript</text>
   <line x1="154" y1="66" x2="790" y2="66" stroke="#d1d9e0" stroke-width="1"/>
   <rect x="154" y="64" width="636.0" height="4" fill="#1f2328"/>
-  <text x="856" y="70" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">76.5%</text>
+  <text x="856" y="70" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">76.4%</text>
   <text x="4" y="104" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Kotlin</text>
   <line x1="154" y1="100" x2="790" y2="100" stroke="#d1d9e0" stroke-width="1"/>
   <rect x="154" y="98" width="80.1" height="4" fill="#1f2328"/>
@@ -17,7 +17,7 @@
   <text x="856" y="138" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">3.5%</text>
   <text x="4" y="172" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">JavaScript</text>
   <line x1="154" y1="168" x2="790" y2="168" stroke="#d1d9e0" stroke-width="1"/>
-  <rect x="154" y="166" width="25.6" height="4" fill="#1f2328"/>
+  <rect x="154" y="166" width="26.0" height="4" fill="#1f2328"/>
   <text x="856" y="172" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">3.1%</text>
   <text x="4" y="206" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">CSS</text>
   <line x1="154" y1="202" x2="790" y2="202" stroke="#d1d9e0" stroke-width="1"/>
