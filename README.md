@@ -74,7 +74,9 @@ Herramientas web y autocalificador de subnetting/VLSM, sobre un motor de cálcul
 
 **La seguridad va antes del pentest, no después.** En la última plataforma que endurecí cerré el 90% de los hallazgos y los validé en producción, no en un documento.
 
-**Pruebas donde cambian decisiones.** Pirámide real por niveles, no cobertura de vanidad.
+**Pruebas contra el sistema real, no contra dobles.** La compuerta del sistema que rediseño hoy son 101 specs de front y 39 pruebas de extremo a extremo que corren contra el stack Docker completo, con la base de datos y el backend reales. Pirámide por niveles, no cobertura de vanidad.
+
+**La accesibilidad es una compuerta, no un parche.** La última auditoría WCAG 2.1 AA que corrí cerró en 0 violaciones automatizadas sobre 42 informes: 22 rutas por dos temas. Barrer en claro y en oscuro no es exceso; un fallo que solo existe en un tema sobrevive a todas las revisiones, porque quien revisa mira en uno solo.
 
 **Privacy by Design.** Cuando el dato es sensible, el procesamiento es local: Margoth y mi app de notas corren modelos de IA 100% offline.
 
@@ -82,6 +84,7 @@ Herramientas web y autocalificador de subnetting/VLSM, sobre un motor de cálcul
 
 **Arquitectura y backend**<br>
 TypeScript · Kotlin · Python · Go · Rust · Java · PHP<br>
+Spring Boot · Ktor · JPA/Hibernate · Flyway · PostgreSQL · MySQL<br>
 DDD · Arquitectura hexagonal · Microservicios · API REST · 12-Factor
 
 **Cloud, DevOps e IaC**<br>
@@ -92,8 +95,12 @@ Bicep · Terraform · Azure DevOps · GitHub Actions · Linux
 n8n · RAG con pgvector · Sistemas multi-agente · APIs de Claude y Gemini
 
 **Frontend y UX**<br>
-Astro · React · Jetpack Compose · JavaScript · CSS · Figma<br>
-Heurísticas de Nielsen · Neurodiversity Design System · Accesibilidad
+Astro · Angular · React · Jetpack Compose · Capacitor · JavaScript · CSS · Figma<br>
+Heurísticas de Nielsen · Neurodiversity Design System · WCAG 2.1 AA
+
+**Calidad y pruebas**<br>
+Playwright · Vitest · Karma · JUnit · MockK · axe-core<br>
+Extremo a extremo contra el stack real · Barrido de accesibilidad en los dos temas
 
 ## 04 · Trayectoria
 

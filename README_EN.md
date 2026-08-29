@@ -74,7 +74,9 @@ Web tooling and auto-grader for subnetting/VLSM, on top of a tested calculation 
 
 **Security comes before the pentest, not after.** On the last platform I hardened I closed 90% of the findings and validated them in production, not in a document.
 
-**Tests where they change decisions.** A real pyramid by level, not vanity coverage.
+**Tests against the real system, not against doubles.** The gate on the system I am redesigning today is 101 front-end specs plus 39 end-to-end tests running against the full Docker stack, with the real database and backend. A real pyramid by level, not vanity coverage.
+
+**Accessibility is a gate, not a patch.** The last WCAG 2.1 AA audit I ran closed at 0 automated violations across 42 reports: 22 routes times two themes. Sweeping in light and dark is not overkill; a defect that only exists in one theme survives every review, because whoever reviews looks at one theme only.
 
 **Privacy by Design.** When the data is sensitive, processing stays local: Margoth and my notes app run AI models fully offline.
 
@@ -82,6 +84,7 @@ Web tooling and auto-grader for subnetting/VLSM, on top of a tested calculation 
 
 **Architecture and backend**<br>
 TypeScript · Kotlin · Python · Go · Rust · Java · PHP<br>
+Spring Boot · Ktor · JPA/Hibernate · Flyway · PostgreSQL · MySQL<br>
 DDD · Hexagonal architecture · Microservices · REST APIs · 12-Factor
 
 **Cloud, DevOps and IaC**<br>
@@ -92,8 +95,12 @@ Bicep · Terraform · Azure DevOps · GitHub Actions · Linux
 n8n · RAG with pgvector · Multi-agent systems · Claude and Gemini APIs
 
 **Frontend and UX**<br>
-Astro · React · Jetpack Compose · JavaScript · CSS · Figma<br>
-Nielsen's heuristics · Neurodiversity Design System · Accessibility
+Astro · Angular · React · Jetpack Compose · Capacitor · JavaScript · CSS · Figma<br>
+Nielsen's heuristics · Neurodiversity Design System · WCAG 2.1 AA
+
+**Quality and testing**<br>
+Playwright · Vitest · Karma · JUnit · MockK · axe-core<br>
+End-to-end against the real stack · Accessibility sweep across both themes
 
 ## 04 · Experience
 
