@@ -2,30 +2,30 @@
   <rect width="860" height="254" fill="#ffffff"/>
   <text x="4" y="28" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="500" fill="#59636e" letter-spacing="2.4">CODE DISTRIBUTION</text>
   <line x1="147.8" y1="24" x2="590" y2="24" stroke="#d1d9e0" stroke-width="1"/>
-  <text x="856" y="28" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#59636e">88 own repositories · forks and HTML excluded</text>
+  <text x="856" y="28" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#59636e">89 own repositories · forks and HTML excluded</text>
   <text x="4" y="70" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">TypeScript</text>
   <line x1="154" y1="66" x2="790" y2="66" stroke="#d1d9e0" stroke-width="1"/>
   <rect x="154" y="64" width="636.0" height="4" fill="#1f2328"/>
-  <text x="856" y="70" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">76.3%</text>
-  <text x="4" y="104" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Kotlin</text>
+  <text x="856" y="70" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">68.6%</text>
+  <text x="4" y="104" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Java</text>
   <line x1="154" y1="100" x2="790" y2="100" stroke="#d1d9e0" stroke-width="1"/>
-  <rect x="154" y="98" width="81.3" height="4" fill="#1f2328"/>
-  <text x="856" y="104" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">9.8%</text>
-  <text x="4" y="138" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Python</text>
+  <rect x="154" y="98" width="107.9" height="4" fill="#1f2328"/>
+  <text x="856" y="104" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">11.6%</text>
+  <text x="4" y="138" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Kotlin</text>
   <line x1="154" y1="134" x2="790" y2="134" stroke="#d1d9e0" stroke-width="1"/>
-  <rect x="154" y="132" width="29.5" height="4" fill="#1f2328"/>
-  <text x="856" y="138" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">3.5%</text>
-  <text x="4" y="172" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">JavaScript</text>
+  <rect x="154" y="132" width="74.4" height="4" fill="#1f2328"/>
+  <text x="856" y="138" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">8.0%</text>
+  <text x="4" y="172" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Python</text>
   <line x1="154" y1="168" x2="790" y2="168" stroke="#d1d9e0" stroke-width="1"/>
-  <rect x="154" y="166" width="26.0" height="4" fill="#1f2328"/>
+  <rect x="154" y="166" width="28.8" height="4" fill="#1f2328"/>
   <text x="856" y="172" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">3.1%</text>
-  <text x="4" y="206" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">CSS</text>
+  <text x="4" y="206" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">JavaScript</text>
   <line x1="154" y1="202" x2="790" y2="202" stroke="#d1d9e0" stroke-width="1"/>
-  <rect x="154" y="200" width="17.0" height="4" fill="#1f2328"/>
-  <text x="856" y="206" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">2.0%</text>
-  <text x="4" y="240" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">Blade</text>
+  <rect x="154" y="200" width="24.4" height="4" fill="#1f2328"/>
+  <text x="856" y="206" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">2.6%</text>
+  <text x="4" y="240" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328">CSS</text>
   <line x1="154" y1="236" x2="790" y2="236" stroke="#d1d9e0" stroke-width="1"/>
-  <rect x="154" y="234" width="11.0" height="4" fill="#1f2328"/>
-  <text x="856" y="240" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">1.3%</text>
+  <rect x="154" y="234" width="16.9" height="4" fill="#1f2328"/>
+  <text x="856" y="240" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#59636e">1.8%</text>
 
 </svg>
