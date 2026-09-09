@@ -428,7 +428,39 @@ if (!data.seesPrivateRepos || !includePrivate) {
   ]) {
     console.warn(line);
   }
-  process.exit(0);
+
+  /*
+   * El run tiene que salir en ROJO. Cuando esto salía con código 0, el workflow
+   * quedaba verde y el paso de publicar decía "las cifras no se movieron", que
+   * se lee igual que un run sano: las tarjetas estuvieron tres semanas viejas
+   * sin que nada lo avisara. Un fallo visible es el único recordatorio que
+   * sobrevive, y se apaga solo en cuanto el PAT quede bien.
+   */
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const { appendFileSync } = await import('node:fs');
+    appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      [
+        '## Tarjetas sin actualizar',
+        '',
+        'El token no alcanza a los repositorios privados, así que las tarjetas se',
+        'dejaron como estaban para no publicar cifras a la baja.',
+        '',
+        `- Repositorios propios vistos: **${data.repoCount}** (ninguno privado)`,
+        `- Cuota por hora: **${probe.limit}** · scopes: **${probe.scopes || 'ninguno (PAT fine-grained)'}**`,
+        '',
+        'Arreglo: dale al PAT *Repository access: All repositories* con',
+        '*Repository permissions → Metadata: Read-only*, o usa uno clásico con `repo`,',
+        'y actualiza el secreto `STATS_TOKEN`.',
+        '',
+        '- [Editar el PAT](https://github.com/settings/tokens)',
+        '- [Actualizar el secreto](https://github.com/Owito/Owito/settings/secrets/actions)',
+        '',
+      ].join('\n'),
+    );
+  }
+  console.error('::error title=STATS_TOKEN no alcanza::Las tarjetas quedaron sin actualizar. Revisa el resumen del run.');
+  process.exit(1);
 }
 
 /**
