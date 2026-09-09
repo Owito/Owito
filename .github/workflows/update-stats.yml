@@ -37,10 +37,13 @@ jobs:
 
       - name: Generar SVG
         env:
-          # STATS_TOKEN es un PAT clásico con `read:user` + `repo`. Sin él las
-          # tarjetas se generan igual, pero el GITHUB_TOKEN de Actions solo ve
-          # lo público: omite la métrica de trabajo privado y cuenta únicamente
-          # los repositorios públicos.
+          # STATS_TOKEN es un PAT que TIENE que ver los repositorios privados:
+          # clásico con `repo`, o fine-grained con "All repositories" y
+          # "Metadata: Read-only". Es obligatorio, no opcional: el GITHUB_TOKEN
+          # de Actions solo ve lo público y con él las cifras no se quedan
+          # viejas, BAJAN. Si el token no alcanza, el script se detiene sin
+          # tocar las tarjetas y el run sale en ROJO a propósito, con el
+          # diagnóstico en el resumen. No lo silencies: arregla el token.
           GH_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
         run: node scripts/generate-stats.mjs

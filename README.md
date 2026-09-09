@@ -5,7 +5,9 @@
 
 <sub>Español · <a href="README_EN.md">English</a></sub>
 
-Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatización basada en IA. Vengo además de la UX y la informática educativa, así que no separo "que funcione" de "que alguien pueda usarlo": lo mismo escribo el Bicep del ambiente que el research con usuarios que decide qué se construye.
+Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatización basada en IA.
+
+Llegué a la arquitectura por una ruta poco común: fui fonoaudiólogo antes que ingeniero, y pasé por la UX y la informática educativa. Por eso la accesibilidad y el manejo del dato sensible no son un requisito que me llega en un ticket, son de donde vengo. Lo mismo escribo el Bicep del ambiente que el research con usuarios que decide qué se construye.
 
 **Abierto a** posiciones de Arquitectura de Software, AI/GenAI Engineering y Cloud.<br>
 [LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [devtalleswar@gmail.com](mailto:devtalleswar@gmail.com)
@@ -24,11 +26,21 @@ Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatizac
 
 ## 01 · Trabajo seleccionado
 
+Tres cuartas partes de lo que construyo vive en repositorios privados de cliente: una fintech de microcrédito en producción, plataformas GenIA empresariales sobre Azure y un RAG sobre documentación normativa con cita obligatoria a la fuente. Lo que sigue es lo que sí puedo abrir.
+
+### Salud, accesibilidad y dato sensible
+
 #### [n8n-nodes-icd11](https://github.com/Owito/n8n-nodes-icd11)
 
 Nodo comunitario que expone la API ICD-11 de la OMS dentro de n8n. Publicado con *trusted publishing* vía OIDC: cero tokens de larga vida en el pipeline.
 
 <sub>TypeScript · n8n SDK · OIDC &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/n8n-nodes-icd11">npm</a></sub>
+
+#### [Margoth](https://github.com/Owito/margoth)
+
+Aplicación de escritorio para rehabilitación cognitiva y del lenguaje. 100% offline por diseño: el dato clínico nunca sale del equipo.
+
+<sub>Python · PyQt6 · Privacy by Design</sub>
 
 #### [Rehabilitación Continua CO](https://github.com/Owito/rehabilitacion-continua-co)
 
@@ -36,11 +48,7 @@ Directorio de educación continua en rehabilitación. Tres proveedores de LLM fa
 
 <sub>Astro · TypeScript · CI/CD &nbsp;·&nbsp; <a href="https://owito.github.io/rehabilitacion-continua-co/">en vivo</a></sub>
 
-#### [Margoth](https://github.com/Owito/margoth)
-
-Aplicación de escritorio para rehabilitación cognitiva y del lenguaje. 100% offline por diseño: el dato clínico nunca sale del equipo.
-
-<sub>Python · PyQt6 · Privacy by Design</sub>
+### Arquitectura, diseño y herramienta
 
 #### [PoliMarket](https://github.com/Owito/polimarket-arquitectura)
 
@@ -74,6 +82,8 @@ Herramientas web y autocalificador de subnetting/VLSM, sobre un motor de cálcul
 
 **La seguridad va antes del pentest, no después.** En la última plataforma que endurecí cerré el 90% de los hallazgos y los validé en producción, no en un documento.
 
+**Automatizo mi propio criterio.** Mantengo 46 skills y 7 subagentes de revisión que codifican lo que miro en seguridad, accesibilidad, arquitectura y calidad. Cada hallazgo nuevo entra a la herramienta el mismo día, así que el criterio no depende de que yo me acuerde.
+
 **Pruebas donde cambian decisiones.** Pirámide real por niveles, no cobertura de vanidad.
 
 **Privacy by Design.** Cuando el dato es sensible, el procesamiento es local: Margoth y mi app de notas corren modelos de IA 100% offline.
@@ -89,7 +99,8 @@ Azure (Container Apps, PostgreSQL, Key Vault, App Gateway) · Docker · Kubernet
 Bicep · Terraform · Azure DevOps · GitHub Actions · Linux
 
 **IA y automatización**<br>
-n8n · RAG con pgvector · Sistemas multi-agente · APIs de Claude y Gemini
+n8n · RAG con pgvector · Evaluación de RAG con Ragas · Sistemas multi-agente<br>
+Servidores MCP · APIs de Claude y Gemini
 
 **Frontend y UX**<br>
 Astro · React · Jetpack Compose · JavaScript · CSS · Figma<br>
