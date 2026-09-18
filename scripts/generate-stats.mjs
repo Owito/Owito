@@ -12,9 +12,10 @@
  *   GH_TOKEN=<token> USERNAME=Owito node scripts/generate-stats.mjs
  *
  * El token por defecto de Actions (GITHUB_TOKEN) solo ve la actividad pública.
- * Para incluir el trabajo en repositorios privados hace falta un PAT con
- * `read:user` guardado como secreto `STATS_TOKEN`; si no está, la tarjeta se
- * degrada sola y omite la métrica de trabajo privado.
+ * Para incluir el trabajo en repositorios privados hace falta un PAT clásico
+ * SOLO con `repo`, guardado como secreto `STATS_TOKEN`. Sin `read:user`: con ese
+ * scope `restrictedContributionsCount` llega en 0 y no se puede medir lo privado.
+ * Si el token no alcanza, la salvaguarda deja las tarjetas como están.
  */
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -409,20 +410,34 @@ if (!data.seesPrivateRepos || !includePrivate) {
     }))
     .catch((e) => ({ status: `error: ${e.message}`, scopes: null, limit: null }));
 
+  // Con `read:user` el token SÍ ve los repositorios privados, pero GitHub le
+  // muestra al dueño todas sus contribuciones como visibles y el contador de
+  // restringidas llega en 0. Es otra falla y tiene otro arreglo: quitar el scope.
+  const readUserZeroesPrivate =
+    data.seesPrivateRepos && !includePrivate && /\bread:user\b/.test(probe.scopes || '');
+
+  let diagnosis;
+  if (probe.limit === '1000') {
+    diagnosis = 'Diagnóstico: es el GITHUB_TOKEN de Actions, o sea que el secreto STATS_TOKEN llegó vacío.';
+  } else if (readUserZeroesPrivate) {
+    diagnosis =
+      'Diagnóstico: el PAT ve los repositorios privados, pero trae `read:user` y con ese scope las contribuciones privadas llegan como 0 restringidas. Crea uno SOLO con `repo`.';
+  } else if (data.seesPrivateRepos) {
+    diagnosis = 'Diagnóstico: el PAT ve repositorios privados, pero GitHub no devolvió contribuciones privadas.';
+  } else {
+    diagnosis = 'Diagnóstico: es un PAT, pero no le llega a los repositorios privados.';
+  }
+
   for (const line of [
-    'AVISO: este token solo ve la actividad pública, así que las tarjetas se',
-    'dejan como están para no publicar cifras a la baja.',
-    `  · repositorios propios vistos  ${data.repoCount} (ninguno privado)`,
-    `  · contribuciones privadas      ${data.restricted}`,
+    'AVISO: con este token no se puede medir el trabajo privado, así que las',
+    'tarjetas se dejan como están para no publicar cifras a la baja.',
+    `  · repositorios propios vistos  ${data.repoCount} (${data.seesPrivateRepos ? 'incluye privados' : 'ninguno privado'})`,
+    `  · contribuciones restringidas  ${data.restricted}`,
     `  · cuota por hora               ${probe.limit} (HTTP ${probe.status})`,
     `  · scopes del token             ${probe.scopes || '(ninguno: es un PAT fine-grained o el GITHUB_TOKEN de Actions)'}`,
-    probe.limit === '1000'
-      ? 'Diagnóstico: es el GITHUB_TOKEN de Actions, o sea que el secreto STATS_TOKEN llegó vacío.'
-      : 'Diagnóstico: es un PAT, pero no le llega a los repositorios privados.',
-    'Arreglo: si el PAT es fine-grained, dale "Repository access: All repositories"',
-    'y el permiso "Repository permissions → Metadata: Read-only". Si prefieres el',
-    'camino corto, un PAT clásico con `repo` funciona sin más ajustes:',
-    '  https://github.com/settings/tokens/new?scopes=repo,read:user',
+    diagnosis,
+    'Arreglo: un PAT clásico SOLO con `repo` (sin `read:user`) funciona sin más ajustes:',
+    '  https://github.com/settings/tokens/new?scopes=repo',
     'El secreto se cambia en:',
     '  https://github.com/Owito/Owito/settings/secrets/actions',
   ]) {
