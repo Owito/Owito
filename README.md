@@ -5,10 +5,10 @@
 
 <sub>Español · <a href="README_EN.md">English</a></sub>
 
-Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatización basada en IA. Vengo además de la UX y la informática educativa, así que no separo "que funcione" de "que alguien pueda usarlo": lo mismo escribo el Bicep del ambiente que el research con usuarios que decide qué se construye.
+Diseño y llevo a producción software para el sector financiero e IA generativa con resultados medibles: integraciones bancarias, agentes y RAG con evaluación, sobre Java / Spring Boot, Python y TypeScript, en Azure, AWS o DigitalOcean. Vengo además de la UX y la informática educativa, así que no separo "que funcione" de "que alguien pueda usarlo": lo mismo escribo el Bicep del ambiente que el research con usuarios que decide qué se construye.
 
 **Abierto a** posiciones de Arquitectura de Software, AI/GenAI Engineering y Cloud.<br>
-[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [devtalleswar@gmail.com](mailto:devtalleswar@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/userpersona/) &nbsp;·&nbsp; [fgoguerra@gmail.com](mailto:fgoguerra@gmail.com)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stats-es-dark.svg">
@@ -23,6 +23,12 @@ Diseño y llevo a producción sistemas distribuidos sobre Azure, con automatizac
 <sub>Estas tarjetas se consultan contra la API de GitHub cada tres horas y se versionan en este repositorio (<a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>), así que no dependen de ningún servicio externo que pueda caerse. La fecha marca cuándo cambiaron las cifras, no cuándo corrió el proceso. Solo lenguajes de programación: el marcado no entra en el reparto. Sin rachas: la mayor parte de mi trabajo ocurre en repositorios privados de cliente y en ciclos por entrega, no en commits diarios.</sub>
 
 ## 01 · Trabajo seleccionado
+
+#### [Auditoría agéntica de n8n](https://github.com/Owito/Look-n8n-RedTeaming)
+
+Servidores MCP con los que un agente audita flujos de n8n: escaneo SAST, patrones inseguros y tablero de seguridad. Su par, [Hydra-n8n-Auditor](https://github.com/Owito/Hydra-n8n-Auditor), propone el parche.
+
+<sub>Python · Model Context Protocol · SAST</sub>
 
 #### [n8n-nodes-icd11](https://github.com/Owito/n8n-nodes-icd11)
 
@@ -48,23 +54,17 @@ Arquitectura de componentes distribuidos con separación estricta de capas: API 
 
 <sub>Go · Rust · Render &nbsp;·&nbsp; <a href="https://owito.github.io/polimarket-arquitectura/">en vivo</a></sub>
 
+#### [API de productos en gRPC](https://github.com/Owito/api-productos-grpc)
+
+Backend con contrato en protobuf y arquitectura hexagonal: el dominio no conoce ni gRPC ni JPA.
+
+<sub>Kotlin · Spring Boot · gRPC · JPA</sub>
+
 #### [Caracter](https://github.com/Owito/caracter)
 
 Audita una interfaz y le pone número a qué tan genérica es. Sin backend y sin telemetría: el análisis corre entero en el navegador, así que nadie ve la UI que estás evaluando.
 
 <sub>TypeScript · Dirección de arte · Sin backend &nbsp;·&nbsp; <a href="https://owito.github.io/caracter/">en vivo</a></sub>
-
-#### [NERV UI](https://github.com/Owito/nerv-ui)
-
-Sistema de diseño CSS open source, distribuido por CDN bajo licencia MIT.
-
-<sub>CSS · Design System · jsDelivr &nbsp;·&nbsp; <a href="https://owito.github.io/nerv-ui/">demo</a></sub>
-
-#### [Telecom Lab](https://github.com/Owito/telecom-lab)
-
-Herramientas web y autocalificador de subnetting/VLSM, sobre un motor de cálculo con pruebas.
-
-<sub>Astro · TypeScript · Vitest &nbsp;·&nbsp; <a href="https://owito.github.io/telecom-lab/">en vivo</a></sub>
 
 ## 02 · Cómo trabajo
 
@@ -81,15 +81,15 @@ Herramientas web y autocalificador de subnetting/VLSM, sobre un motor de cálcul
 ## 03 · Stack
 
 **Arquitectura y backend**<br>
-TypeScript · Kotlin · Python · Go · Rust · Java · PHP<br>
+Java (Spring Boot) · TypeScript · Kotlin · Python · Go · Rust<br>
 DDD · Arquitectura hexagonal · Microservicios · API REST · 12-Factor
 
 **Cloud, DevOps e IaC**<br>
-Azure (Container Apps, PostgreSQL, Key Vault, App Gateway) · Docker · Kubernetes<br>
+Azure (Container Apps, PostgreSQL, Key Vault, App Gateway) · AWS · DigitalOcean · Docker · Kubernetes<br>
 Bicep · Terraform · Azure DevOps · GitHub Actions · Linux
 
 **IA y automatización**<br>
-n8n · RAG con pgvector · Sistemas multi-agente · APIs de Claude y Gemini
+Sistemas multi-agente · Servidores MCP · RAG con pgvector y evaluación (Ragas) · Claude Code · APIs de Claude y Gemini · n8n
 
 **Frontend y UX**<br>
 Astro · React · Jetpack Compose · JavaScript · CSS · Figma<br>
@@ -97,7 +97,10 @@ Heurísticas de Nielsen · Neurodiversity Design System · Accesibilidad
 
 ## 04 · Trayectoria
 
-**Senior Technical Lead · Arquitecto de Software** · *actual*<br>
+**Consultor independiente · Arquitecto de Software e IA** · *2026 a hoy*<br>
+Sector financiero: integración Host to Host con un banco (ISO 20022, PGP, Entra ID), cuentas por pagar y un estándar de desarrollo con IA de 144 reglas; un RAG evaluado (hit@1 de 95 % en 40 preguntas verificadas) y una plataforma de microcrédito en producción desde septiembre de 2026. Agentes en el ciclo de entrega, siempre con revisión humana antes de producción.
+
+**Líder Técnico · Solvo (vía Softgic)** · *2025 a 2026, 1 año*<br>
 Arquitectura de plataformas GenIA sobre Azure, migración de PostgreSQL a infraestructura gestionada, hardening y automatización con IA. Del diseño de la infraestructura al pipeline.
 
 **Diseñador instruccional senior y plataformas educativas** · *2020 a 2024*<br>
@@ -109,11 +112,11 @@ Desarrollo web e investigación centrada en el usuario.
 ## 05 · Formación
 
 - **Máster en Arquitectura de Software** · Politécnico Grancolombiano · *en curso*
-- **Ingeniería de Software** · Politécnico Grancolombiano
+- **Ingeniería de Software** · Politécnico Grancolombiano · *en curso*
 - **Magíster en Informática Educativa** · Universidad de La Sabana
 - **Fonoaudiólogo** · Universidad de Pamplona
 
 ## 06 · Contacto
 
 ¿Un rol, un proyecto o una segunda opinión sobre una arquitectura?<br>
-[devtalleswar@gmail.com](mailto:devtalleswar@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)
+[fgoguerra@gmail.com](mailto:fgoguerra@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/userpersona/)
